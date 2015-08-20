@@ -174,6 +174,7 @@ function onUpdate()
 		alkTime = moment(data.alkTime);
 		cetTime = moment(data.cetTime);
 		astTime = moment(data.astTime);
+		cetTime.add(1, 'h');
 	});
 	
 	drawClock();
@@ -196,8 +197,11 @@ function drawClock()
 
 function onDocumentReady(event)
 {
+	cetTime.add(1, 'h');
+	
 	setInterval(onTick, 1000);
 	setInterval(onUpdate, 1000 * 60);
+	
 	onUpdate();
 }
 
