@@ -152,7 +152,12 @@ function onTick()
 {
 	utcTime.add(1, 's');
 	estTime.add(1, 's');
+	cenTime.add(1, 's');
+	mntTime.add(1, 's');
 	pstTime.add(1, 's');
+	alkTime.add(1, 's');
+	cetTime.add(1, 's');
+	astTime.add(1, 's');
 	
 	drawClock();
 }
@@ -163,7 +168,12 @@ function onUpdate()
 	$.get('esoclock.php?json', function( data ) {
 		utcTime = moment(data.utcTime);
 		pstTime = moment(data.pstTime);
+		cenTime = moment(data.cenTime);
+		mntTime = moment(data.mntTime);
 		estTime = moment(data.estTime);
+		alkTime = moment(data.alkTime);
+		cetTime = moment(data.cetTime);
+		astTime = moment(data.astTime);
 	});
 	
 	drawClock();
@@ -175,7 +185,12 @@ function drawClock()
 	$('#gameTime').text(computeGameTimeFromUTC(estTime) + " (Moons are " + computeMoonPhase(estTime) + ")");
 	$('#utcTime').text(utcTime.format(outputFormat) +" UTC");
 	$('#estTime').text(estTime.format(outputFormat) + " EST");
+	$('#cenTime').text(cenTime.format(outputFormat) + " Central");
+	$('#mntTime').text(mntTime.format(outputFormat) + " Mountain");
 	$('#pstTime').text(pstTime.format(outputFormat) + " PST");
+	$('#alkTime').text(alkTime.format(outputFormat) + " Alaska");
+	$('#astTime').text(astTime.format(outputFormat) + " AEST");
+	$('#cetTime').text(cetTime.format(outputFormat) + " CET");
 }
 
 
