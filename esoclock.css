@@ -5,7 +5,7 @@ body {
 	color: #eee;
 }
 
-#gameTimeBlock, #pstTimeBlock, #utcTimeBlock, #estTimeBlock {
+.timeBlock {
 	display: block;
 	text-align: center;
 	margin-bottom: 20px;

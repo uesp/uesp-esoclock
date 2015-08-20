@@ -13,9 +13,34 @@
 			"timezone" => "America/New_York",
 			"date" => null,
 		),
+		"MNT" => array(
+			"name" => "mnt",
+			"timezone" => "America/Denver",
+			"date" => null,
+		),
+		"CEN" => array(
+			"name" => "cen",
+			"timezone" => "America/Chicago",
+			"date" => null,
+		),
+		"ALK" => array(
+			"name" => "alk",
+			"timezone" => "America/Anchorage",
+			"date" => null,
+		),
 		"PST" => array(
 			"name" => "pst",
 			"timezone" => "America/Los_Angeles",
+			"date" => null,
+		),
+		"AST" => array(
+			"name" => "ast",
+			"timezone" => "Australia/Sydney",
+			"date" => null,
+		),
+		"CET" => array(
+			"name" => "cet",
+			"timezone" => "Europe/Berlin",
 			"date" => null,
 		),
 	);
@@ -87,24 +112,49 @@
 <body>
 	<h1>Unofficial Elder Scrolls Online Game Clocks</h1>
 	<hr />
-	<div id="gameTimeBlock">
+	<div id="gameTimeBlock" class="timeBlock">
 		<div class="timeTitle">Game Time</div><br />
 		<div id="gameTime" class="time"></div>
 	</div>
 	<hr />
-	<div id="utcTimeBlock">
-		<div class="timeTitle">UTC Time</div><br />
+	<div id="utcTimeBlock" class="timeBlock">
+		<div class="timeTitle">Universal Time</div><br />
 		<div id="utcTime" class="time"></div>
 	</div>
 	<hr />
-	<div id="estTimeBlock">
-		<div class="timeTitle">EST Time</div><br />
+	<div id="estTimeBlock" class="timeBlock">
+		<div class="timeTitle">Eastern Time</div><br />
 		<div id="estTime" class="time"></div>
 	</div>
 	<hr />
-	<div id="pstTimeBlock">
-		<div class="timeTitle">PST Time</div><br />
+	<div id="cenTimeBlock" class="timeBlock">
+		<div class="timeTitle">Central Time</div><br />
+		<div id="cenTime" class="time"></div>
+	</div>
+	<hr />
+	<div id="mntTimeBlock" class="timeBlock">
+		<div class="timeTitle">Mountain Time</div><br />
+		<div id="mntTime" class="time"></div>
+	</div>
+	<hr />
+	<div id="pstTimeBlock" class="timeBlock">
+		<div class="timeTitle">Pacific Time</div><br />
 		<div id="pstTime" class="time"></div>
+	</div>
+	<hr />
+	<div id="alkTimeBlock" class="timeBlock">
+		<div class="timeTitle">Alaska Time</div><br />
+		<div id="alkTime" class="time"></div>
+	</div>
+	<hr />
+	<div id="astTimeBlock" class="timeBlock">
+		<div class="timeTitle">Australia Time</div><br />
+		<div id="astTime" class="time"></div>
+	</div>
+	<hr />
+	<div id="cetTimeBlock" class="timeBlock">
+		<div class="timeTitle">Central European Time</div><br />
+		<div id="cetTime" class="time"></div>
 	</div>
 	<hr />
 	<div id="sitefooter">
