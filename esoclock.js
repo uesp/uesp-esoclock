@@ -185,10 +185,10 @@ function drawClock()
 {
 	$('#gameTime').html(computeGameTimeFromUTC(estTime) + "<br /><font size='-0.5'>Moons are " + computeMoonPhase(estTime) + "</font>");
 	$('#utcTime').text(utcTime.format(outputFormat) +" UTC");
-	$('#estTime').text(estTime.format(outputFormat) + " EST");
+	$('#estTime').text(estTime.format(outputFormat) + " EST/EDT");
 	$('#cenTime').text(cenTime.format(outputFormat) + " Central");
 	$('#mntTime').text(mntTime.format(outputFormat) + " Mountain");
-	$('#pstTime').text(pstTime.format(outputFormat) + " PST");
+	$('#pstTime').text(pstTime.format(outputFormat) + " PST/PDT");
 	$('#alkTime').text(alkTime.format(outputFormat) + " Alaska");
 	$('#astTime').text(astTime.format(outputFormat) + " AEST");
 	$('#cetTime').text(cetTime.format(outputFormat) + " CET");
