@@ -1,17 +1,57 @@
 body {
 	font-family: "Arial", sans-serif;
 	font-size: 12pt;
+	background-color: #111;
+	color: #eee;
 }
 
 #gameTimeBlock, #pstTimeBlock, #utcTimeBlock, #estTimeBlock {
 	display: block;
+	text-align: center;
+	margin-bottom: 20px;
 }
 
 .timeTitle {
 	display: inline-block;
-	font-weight: bold;
+	font-weight: 900;
+	margin-bottom: 5px;
+	font-size: 25px;
+	color: #7777ff;
 }
 
-#gameTime, #pstTime, #utcTime, #estTime {
+.time {
 	display: inline-block;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+#siteheader {
+	position: absolute;
+	font-weight: bold;
+	font-size: 12px;
+	right: 5px;
+	top: 5px;
+}
+
+#sitefooter {
+	text-align: left;
+	font-weight: normal;
+	font-size: 12px;
+}
+
+h1 {
+	text-align: center;
+	color: #EFE1BC;
+}
+
+hr {
+	border-color: #444;
+}
+
+a {
+	color: #6666ff;
+}
+
+a:visited {
+	color: #ff00ff;
 }

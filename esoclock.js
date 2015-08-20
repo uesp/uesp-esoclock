@@ -9,8 +9,8 @@ var DEFAULT_REALSECONDSPERGAMEYEAR = DEFAULT_REALSECONDSPERGAMEDAY * 365;
 var DEFAULT_REALSECONDSPERGAMEHOUR = DEFAULT_REALSECONDSPERGAMEDAY / 24;
 var DEFAULT_REALSECONDSPERGAMEMINUTE = DEFAULT_REALSECONDSPERGAMEHOUR / 60;
 var DEFAULT_REALSECONDSPERGAMESECOND = DEFAULT_REALSECONDSPERGAMEMINUTE / 60;
-var DEFAULT_MOONPHASESTARTTIME = 1396083600 - 207360;
-var DEFAULT_MOONPHASETIME = 96 * 3600;
+var DEFAULT_MOONPHASESTARTTIME = 1396083600 - 207360 - 180000;
+var DEFAULT_MOONPHASETIME = 100 * 3600;
 
 var TES_MONTHS = [
 		"Morning Star",
@@ -141,6 +141,9 @@ function computeMoonPhase(inputTime)
 		phaseStr = "New";
 	}
 	
+	relMoonPhase = (100 - Math.abs((moonPhase % 1)- 0.5)*200).toFixed(0);
+	phaseStr += ", " + relMoonPhase + "% full";
+	
 	return phaseStr;
 }
 
@@ -179,6 +182,7 @@ function drawClock()
 function onDocumentReady(event)
 {
 	setInterval(onTick, 1000);
+	setInterval(onUpdate, 1000 * 3600);
 	onUpdate();
 }
 
