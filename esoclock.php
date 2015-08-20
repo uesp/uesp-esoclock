@@ -40,7 +40,7 @@
 		),
 		"CET" => array(
 			"name" => "cet",
-			"timezone" => "Europe/Berlin",
+			"timezone" => "Europe/London",
 			"date" => null,
 		),
 	);

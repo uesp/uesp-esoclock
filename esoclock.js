@@ -197,7 +197,7 @@ function drawClock()
 function onDocumentReady(event)
 {
 	setInterval(onTick, 1000);
-	setInterval(onUpdate, 1000 * 3600);
+	setInterval(onUpdate, 1000 * 60);
 	onUpdate();
 }
 
