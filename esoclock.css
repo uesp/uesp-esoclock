@@ -1,0 +1,17 @@
+body {
+	font-family: "Arial", sans-serif;
+	font-size: 12pt;
+}
+
+#gameTimeBlock, #pstTimeBlock, #utcTimeBlock, #estTimeBlock {
+	display: block;
+}
+
+.timeTitle {
+	display: inline-block;
+	font-weight: bold;
+}
+
+#gameTime, #pstTime, #utcTime, #estTime {
+	display: inline-block;
+}

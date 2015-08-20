@@ -1,0 +1,12 @@
+#
+#
+#
+
+name = uesp.esoclock
+
+ignore = .hg*
+ignore = *.deploy
+ignore = *.sh
+
+dest = content3.uesp.net:/home/uesp/www/esoclock/
+
