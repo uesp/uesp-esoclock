@@ -3,8 +3,10 @@ var outputFormat = 'dddd, MMMM DD YYYY - HH:mm:ss';
 var GAMETIME_REALSECONDS_OFFSET = 6471;
 var GAMETIME_DAY_OFFSET = 0.37;
 var DEFAULT_GAMETIME_OFFSET = 1396569600;		// Offset to make in-game date 1st Morning Star
+DEFAULT_GAMETIME_OFFSET = 1396548645;			// Fix to match time used in Clock v0.7.7 addon.
 var DEFAULT_GAMETIME_OFFSET_EXTRA = -1909707; 	// Extra offset to make in-game date on launch day 4th Rain's Hand,
 var GAMETIME_WEEKDAY_OFFSET = 5;				// Weekday offset to make launch dat Fredas
+GAMETIME_WEEKDAY_OFFSET = 3;					// Fix to match time used in Clock v0.7.7 addon.
 var DEFAULT_GAMETIME_YEAROFFSET = 582;
 var DEFAULT_REALSECONDSPERGAMEDAY = 20955;
 var DEFAULT_REALSECONDSPERGAMEYEAR = DEFAULT_REALSECONDSPERGAMEDAY * 365;
@@ -91,7 +93,7 @@ function computeGameTimeFromUTC(inputTime)
 		month = 11;
 	}
 
-	weekDay = Math.floor(((offsetTime / DEFAULT_REALSECONDSPERGAMEDAY) - GAMETIME_WEEKDAY_OFFSET) % 7);
+	weekDay = Math.floor(((offsetTime / DEFAULT_REALSECONDSPERGAMEDAY) + GAMETIME_WEEKDAY_OFFSET)) % 7;
 	monthStr = TES_MONTHS[month];
 	weekDayStr = TES_WEEKS[weekDay];
 	hour = Math.floor((gameDayTime / DEFAULT_REALSECONDSPERGAMEHOUR) % 24);
