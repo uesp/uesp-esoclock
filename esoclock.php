@@ -102,7 +102,7 @@
 	<link rel="stylesheet" href="esoclock.css" />
 	<script type="text/javascript" src="jquery-1.10.2.js"></script>
 	<script type="text/javascript" src="moment.min.js"></script>
-	<script type="text/javascript" src="esoclock.js"></script>
+	<script type="text/javascript" src="esoclock.js?11May2017"></script>
 	<script type="text/javascript">
 <?php
 	printDates();
@@ -158,7 +158,7 @@
 	</div>
 	<hr />
 	<div id="sitefooter">
-		Hosted by the <a href="http://www.uesp.net">Unofficial Elder Scrolls Pages (uesp.net)</a>. Contact <a href="mailto:dave@uesp.net">Dave</a> for more information on this page.
+		Hosted by the <a href="//www.uesp.net">Unofficial Elder Scrolls Pages (uesp.net)</a>. Contact <a href="mailto:dave@uesp.net">Dave</a> for more information on this page.
 	</div>
 </body>
 </html>
