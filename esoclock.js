@@ -193,7 +193,7 @@ function onUpdate()
 
 function drawClock()
 {
-	$('#gameTime').html(computeGameTimeFromUTC(utcTime) + "<br /><font size='-0.5'>Moons are " + computeMoonPhase(estTime) + "</font>");
+	$('#gameTime').html(computeGameTimeFromUTC(utcTime) + "<br /><font size='-0.5'>Moons are " + computeMoonPhase(utcTime) + "</font>");
 	$('#utcTime').text(utcTime.format(outputFormat) +" UTC");
 	$('#estTime').text(estTime.format(outputFormat) + " EST/EDT");
 	$('#cenTime').text(cenTime.format(outputFormat) + " Central");
