@@ -78,7 +78,7 @@
 		
 		foreach($dateTimes as $dateTime)
 		{
-			$outputData[$dateTime['name'] . 'Time'] = $dateTime['date']->format($OUTPUT_DATE_FORMAT);
+			$outputData[$dateTime['name'] . 'Time'] = $dateTime['date']->format($OUTPUT_DATE_FORMAT) . "";
 		}
 		
 		echo json_encode($outputData);

@@ -45,8 +45,11 @@ var TES_WEEKS = [
 
 function computeGameTimeFromUTC(inputTime)
 {
-	if (inputTime == null) inputTime = estTime;
-	timeStamp = parseFloat(inputTime.format("X"));
+	if (inputTime == null) inputTime = utcTime;
+	
+		// Compute current timestamp in EST
+	//timeStamp = parseFloat(inputTime.format("X"));
+	timeStamp = parseFloat(moment.parseZone(inputTime.format('YYYY-MM-DDTHH:mm:ss-00:00')).format("X"));
 	
 	offsetTime = timeStamp - DEFAULT_GAMETIME_OFFSET - DEFAULT_GAMETIME_OFFSET_EXTRA;
 	gameDayTime = offsetTime % DEFAULT_REALSECONDSPERGAMEDAY;
@@ -118,8 +121,10 @@ function computeGameTimeFromUTC(inputTime)
 
 function computeMoonPhase(inputTime)
 {
-	if (inputTime == null) inputTime = estTime;
-	timeStamp = parseFloat(inputTime.format("X"));
+	if (inputTime == null) inputTime = utcTime;
+	
+	//timeStamp = parseFloat(inputTime.format("X"));
+	timeStamp = parseFloat(moment.parseZone(inputTime.format('YYYY-MM-DDTHH:mm:ss-00:00')).format("X"));
 	
 	moonOffsetTime = timeStamp - DEFAULT_MOONPHASESTARTTIME;
 	moonPhase = moonOffsetTime / DEFAULT_MOONPHASETIME;
@@ -188,7 +193,7 @@ function onUpdate()
 
 function drawClock()
 {
-	$('#gameTime').html(computeGameTimeFromUTC(estTime) + "<br /><font size='-0.5'>Moons are " + computeMoonPhase(estTime) + "</font>");
+	$('#gameTime').html(computeGameTimeFromUTC(utcTime) + "<br /><font size='-0.5'>Moons are " + computeMoonPhase(estTime) + "</font>");
 	$('#utcTime').text(utcTime.format(outputFormat) +" UTC");
 	$('#estTime').text(estTime.format(outputFormat) + " EST/EDT");
 	$('#cenTime').text(cenTime.format(outputFormat) + " Central");
