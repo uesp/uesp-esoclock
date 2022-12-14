@@ -1,6 +1,7 @@
 <?php
 	$OUTPUT_DATE_FORMAT = "Y-m-d\TH:i:s";
 	$currentDate = new DateTime;
+	$customDate = null;
 	
 	$dateTimes = array(
 		"UTC" => array(
@@ -85,6 +86,34 @@
 	}
 	
 	
+	$errorCustomDate = '';
+	
+	if (array_key_exists('date', $_REQUEST))
+	{
+				//1970-01-01 00:00:00
+		$customDate = DateTime::createFromFormat('Y-m-d H:i:s e', $_REQUEST['date']);
+		if ($customDate === false) $customDate = DateTime::createFromFormat('Y-m-d H:i:s', $_REQUEST['date']);
+		if ($customDate === false) $customDate = DateTime::createFromFormat('Y-m-d H:i e', $_REQUEST['date']);
+		if ($customDate === false) $customDate = DateTime::createFromFormat('Y-m-d H:i', $_REQUEST['date']);
+		
+		if ($customDate === false)
+		{
+			$safeDate = htmlspecialchars($_REQUEST['date']);
+			$errorCustomDate = "Error: Failed to parse custom date '$safeDate'! Expecting a time format like '2022-01-31 15:30:01' (YYYY-MM-DD hh:mm:ss)! Also accepts an optional time zone at the end.\n";
+			$customDate = null;
+		}
+		else
+		{
+			foreach($dateTimes as $key => $dateTime)
+			{
+				//$dateTimes[$key]['date'] = new DateTime($customDate->format('Y-m-d H:i:s'), new DateTimeZone($dateTime['timezone']));
+				$newDateTime = clone $customDate;
+				$newDateTime->setTimezone(new DateTimeZone($dateTime['timezone']));
+				$dateTimes[$key]['date'] = $newDateTime;
+			}
+		}
+	}
+	
 	if (array_key_exists('json', $_REQUEST))
 	{
 		header('Content-Type: application/json');
@@ -106,11 +135,33 @@
 	<script type="text/javascript">
 <?php
 	printDates();
+	
+	if ($customDate)
+	{
+		$outDate = $customDate->format("c");
+		$testDate = $customDate->format('Y-m-d H:i:s');
+		print("var customDate = '$outDate';\n");
+		print("var customTime = moment('$outDate');\n");
+		print("var testDate = '$testDate';\n");
+	}
+	else
+	{
+		print("var customDate = null;\n");
+		print("var customTime = null;\n");
+	}
 ?>
 	</script>
 </head>
 <body>
 	<h1>Unofficial Elder Scrolls Online Game Clocks</h1>
+<?php
+	if ($customDate)
+	{
+		$safeDate = $customDate->format("c");
+		print("<center>Showing fixed time for custom date $safeDate.</center><br/>\n");
+	}
+	if ($errorCustomDate) print("<center>$errorCustomDate</center><br/>\n");
+?>
 	<hr />
 	<div id="gameTimeBlock" class="timeBlock">
 		<div class="timeTitle">Game Time</div><br />

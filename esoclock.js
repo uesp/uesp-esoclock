@@ -208,8 +208,11 @@ function onDocumentReady(event)
 {
 	cetTime.add(1, 'h');
 	
-	setInterval(onTick, 1000);
-	setInterval(onUpdate, 1000 * 60);
+	if (customDate == null)
+	{
+		setInterval(onTick, 1000);
+		setInterval(onUpdate, 1000 * 60);
+	}
 	
 	onUpdate();
 }
