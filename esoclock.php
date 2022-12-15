@@ -209,7 +209,8 @@
 	</div>
 	<hr />
 	<div id="sitefooter">
-		Hosted by the <a href="//www.uesp.net">Unofficial Elder Scrolls Pages (uesp.net)</a>. Contact <a href="mailto:dave@uesp.net">Dave</a> for more information on this page.
+		Hosted by the <a href="//www.uesp.net">Unofficial Elder Scrolls Pages (uesp.net)</a>. Contact <a href="mailto:dave@uesp.net">Dave</a> for more information on this page.<br/>
+		Trying to convert a specific date to an ESO Game Time? Try the page format like <a href="/?date=2020-01-30 13:45:50 EST">https://esoclock.uesp.net/?date=2020-01-30 13:45:50 EST</a>.
 	</div>
 </body>
 </html>
